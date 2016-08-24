@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Second Assessment</title>
+    <link href="~/Content/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+    <link href="~/Content/SyntaxHighlighter/shThemeDefault.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div>
+        
+           
+                
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#MakeString">Make a string</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Calculate">Calculate</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Count">Count</button>
+       
+        
+    </div>
+    <!--make string modal-->
+    <div id="MakeString" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Make a string</h4>
+                </div>
+                <div class="modal-body">
+                    <div container>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>Please enter three numbers: </p>
+                                <form>
+                                    <input type="number" id="num1" />
+                                    <input type="number" id="num2" />
+                                    <input type="number" id="num3" />
+                                    <button type="button" onclick="makeString()">Make a string!</button>
+                                </form>
+                                <p id="makeStringResult"></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <pre class="brush: js;">
+function makeString() {
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+    var num3 = document.getElementById("num3").value;
+    document.getElementById("makeStringResult").innerHTML =
+        "I have " + num1 + " fig trees, Susie has " + num2 +
+        " tomatoes, and Albert has " + num3 +
+        " jars of pickles.";
+} // end function makeString
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <!--calculate modal-->
+    <div id="Calculate" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Calculate</h4>
+                </div>
+                <div class="modal-body">
+                    <div container>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>Please enter four numbers:</p>
+                                <form>
+                                    (<input type="number" id="num4" /> + <input type="number" id="num5" /> - <input type="number" id="num6" />) X
+
+
+                                    <input type="number" id="num7" />
+                                    <p id="calculateResult">= </p>
+                                    <br />
+                                    <button type="button" onclick="calculate()">Calculate!</button>
+                                </form>
+                            </div>
+                            <div class="col-sm-8">
+                                <pre class="brush: js;">
+function calculate() {
+    var num4 = Number(document.getElementById("num4").value);
+    var num5 = Number(document.getElementById("num5").value);
+    var num6 = Number(document.getElementById("num6").value);
+    var num7 = Number(document.getElementById("num7").value);
+    var result = (num4 + num5 - num6) * num7;
+    document.getElementById("calculateResult").innerHTML += result;
+} // end function calculate
+</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--count modal-->
+    <div id="Count" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Count</h4>
+                </div>
+                <div class="modal-body">
+                    <div container>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>Please enter a number to count up to:</p>
+                                <form>
+                                    <input type="number" id="num8" />
+                                    <button type="button" onclick="count()">Count</button>
+                                </form>
+                                <p id="countResult"></p>
+                            </div>
+                            <div class="col-sm-8">
+                                <pre class="brush: js;">
+function count() {
+    var max = Number(document.getElementById("num8").value);
+    var anArray = [];
+    var i = 0;
+    while (i <= max){
+        if (i % 2 == 0)
+            anArray.push(i);
+        else
+            anArray.push("odd");
+        i++;
+    }
+    document.getElementById("countResult").innerHTML = anArray;
+} // end function count
+</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!---->
+    
+    
+
+<script type="text/javascript">
+    function makeString() {
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        var num3 = document.getElementById("num3").value;
+
+        document.getElementById("makeStringResult").innerHTML =
+            "I have " + num1 + " fig trees, Susie has " + num2 +
+            " tomatoes, and Albert has " + num3 +
+            " jars of pickles.";
+   
+    } // end function makeString
+    function calculate() {
+        var num4 = Number(document.getElementById("num4").value);
+        var num5 = Number(document.getElementById("num5").value);
+        var num6 = Number(document.getElementById("num6").value);
+        var num7 = Number(document.getElementById("num7").value);
+        var result = (num4 + num5 - num6) * num7;
+        document.getElementById("calculateResult").innerHTML += result;
+    } // end function calculate
+    function count() {
+        var max = Number(document.getElementById("num8").value);
+        var anArray = [];
+        var i = 0;
+        while (i <= max){
+            if (i % 2 == 0)
+                anArray.push(i);
+            else
+                anArray.push("odd");
+            i++;
+        }
+        document.getElementById("countResult").innerHTML = anArray;
+    } // end function count
+</script>
+    
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+</body>
+</html>
